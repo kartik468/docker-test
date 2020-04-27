@@ -1,5 +1,5 @@
 # we are extending everything from tomcat:8.0 image ...
-FROM tomcat:8.0
+FROM tomcat:jdk8
 
 LABEL MAINTAINER="kartik"
 
