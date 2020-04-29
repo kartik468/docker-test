@@ -1,0 +1,12 @@
+# create image from docker file
+
+sudo docker image build -t sample-spring-app .
+
+
+# create container from image
+
+sudo container run -it --publish 8080:8080 <image-id>
+
+# go into container
+
+docker contianer exec -it {container_name/ID} bash
