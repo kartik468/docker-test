@@ -7,17 +7,19 @@ sudo -i
 
 
 ```
-$ sudo systmectl start mysql
-$ sudo systmectl stop mysql
-$ sudo systmectl status mysql
+sudo systemctl start mysql
+sudo systemctl stop mysql
+sudo systemctl status mysql
 
 - go to console
-$ sudo mysql
+sudo mysql
 ```
 
 ### create db and table
 ```
 mysql> CREATE DATABASE `users_database`;
+
+mysql> use `users_database`;
 
 mysql> CREATE TABLE `employees` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -39,16 +41,20 @@ spring.datasource.password = admin
 
 ## start tomcat
 ```
-$ cd /opt/tomcat/latest/
-$ bin/startup.sh; tail -f logs/catalina.out
+cd /opt/tomcat/latest/
+
+bin/startup.sh; tail -f logs/catalina.out
 ```
 
 ### tomcat spring boot metrics
+
+```
 http://localhost:8080/springboot2-jpa-crud-example-0.0.1-SNAPSHOT/actuator/prometheus
 http://localhost:8080/springboot2-jpa-crud-example-0.0.1-SNAPSHOT/actuator
 
 http://localhost:8080/angular8-springboot-client/employees
 
+```
 
 ### spring build war
 ```
@@ -111,21 +117,22 @@ http://localhost:24231/metrics
 
 Status
 ```
-$ sudo /etc/init.d/td-agent start
-$ sudo /etc/init.d/td-agent stop
-$ sudo /etc/init.d/td-agent restart
-$ sudo /etc/init.d/td-agent status
+sudo /etc/init.d/td-agent start
+sudo /etc/init.d/td-agent stop
+sudo /etc/init.d/td-agent restart
+sudo /etc/init.d/td-agent status
 ```
 
 ### see fluentd log
-$ sudo tail -f /var/log/td-agent/td-agent.log 
+sudo tail -f /var/log/td-agent/td-agent.log 
 
 ---
 
 ### start alert manager
 ```
-$ cd /home/ubuntu/Desktop/kartik/devopsPOC/alertmanager-0.20.0.linux-amd64
-$ ./alertmanager
+cd /home/ubuntu/Desktop/kartik/devopsPOC/alertmanager-0.20.0.linux-amd64
+
+./alertmanager
 ```
 
 #### url
@@ -138,8 +145,9 @@ localhost:9093
 ### start
 
 ```
-$ cd /home/ubuntu/Desktop/kartik/devopsPOC/prometheus-2.17.2.linux-amd64
-$ ./prometheus
+cd /home/ubuntu/Desktop/kartik/devopsPOC/prometheus-2.17.2.linux-amd64
+
+./prometheus
 ```
 
 ### link
@@ -152,11 +160,21 @@ http://localhost:9090
 
 ### start
 ```
-$ cd /home/ubuntu/Desktop/kartik/devopsPOC/grafana-6.7.2
-$ bin/grafana-server
+cd /home/ubuntu/Desktop/kartik/devopsPOC/grafana-6.7.2
+
+bin/grafana-server
 ```
 
 ### url
 localhost:3000
 
 ---
+
+
+## start node_exporter
+
+```
+cd /home/ubuntu/Desktop/kartik/devopsPOC/node_exporter-1.0.0-rc.0.linux-amd64
+
+./node_exporter
+```
