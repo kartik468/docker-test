@@ -63,10 +63,36 @@ The resulting image will be tagged as grafana/grafana:dev.
 
 maybe your inotify resources exhausted, increase max_user_watches works for me.
 
-$ cat /proc/sys/fs/inotify/max_user_watches # default is 8192 $ sudo sysctl fs.inotify.max_user_watches=1048576 # increase to 1048576
+```
+$ cat /proc/sys/fs/inotify/max_user_watches # default is 8192 
+$ sudo sysctl fs.inotify.max_user_watches=1048576 # increase to 1048576
+```
 
 ## How to fix docker: Got permission denied while trying to connect to the Docker daemon socket
 
 https://docs.docker.com/engine/install/linux-postinstall/
 
 https://www.digitalocean.com/community/questions/how-to-fix-docker-got-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket
+
+## grafana plugin
+
+Grafana supports three types of plugins: panel, datasource, and app.
+
+```
+In the plugin directory, create a plugin from template using the plugin:create command:
+
+npx "@grafana/toolkit"@next plugin:create my-plugin
+Change directory.
+
+cd my-plugin
+
+Download necessary dependencies:
+yarn install
+
+Build the plugin:
+yarn dev
+
+Restart the Grafana server for Grafana to discover your plugin.
+
+Open Grafana and go to Configuration -> Plugins. Make sure that your plugin is there.
+```
