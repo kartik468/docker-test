@@ -59,7 +59,8 @@ The resulting image will be tagged as grafana/grafana:dev.
     sudo docker container run -it --publish 3000:3000 <image-id>
 
 
-## no space left issue when 'make run'
+## no space left issue when 'make run' 
+## [nodemon] Internal watch failed: ENOSPC: System limit for number of file watchers reached, watch '....'
 
 maybe your inotify resources exhausted, increase max_user_watches works for me.
 
